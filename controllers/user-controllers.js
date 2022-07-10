@@ -60,6 +60,7 @@ const login = async (req, res, next) => {
     expires: new Date(Date.now() + 1000 * 30),
     httpOnly: true,
     sameSite: "lax",
+    secure: true,
   });
 
   return res.status(200).json({ message: "Succesfully Logged In" });
@@ -134,6 +135,7 @@ const refreshToken = (req, res, next) => {
       path: "/",
       sameSite: "lax",
       httpOnly: true,
+      secure: true,
       expires: new Date(Date.now() + 1000 * 43200),
     });
 
