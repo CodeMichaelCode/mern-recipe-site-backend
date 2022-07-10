@@ -57,7 +57,7 @@ const login = async (req, res, next) => {
     path: "/",
     expires: new Date(Date.now() + 1000 * 30),
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: "none",
     secure: true,
   });
 
@@ -129,7 +129,7 @@ const refreshToken = (req, res, next) => {
 
     res.cookie(String(user.id), token, {
       path: "/",
-      sameSite: "lax",
+      sameSite: "none",
       httpOnly: true,
       secure: true,
       expires: new Date(Date.now() + 1000 * 43200),
