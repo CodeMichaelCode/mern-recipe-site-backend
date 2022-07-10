@@ -13,6 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/", router);
+
 app.use("/recipe", recipeRouter);
 
 mongoose
