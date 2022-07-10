@@ -49,8 +49,6 @@ const login = async (req, res, next) => {
     expiresIn: "35s",
   });
 
-  console.log("Generated Token\n", token);
-
   if (req.cookies[`${user._id}`]) {
     req.cookies[`${user._id}`] = "";
   }
@@ -128,8 +126,6 @@ const refreshToken = (req, res, next) => {
     const token = jwt.sign({ id: user.id }, process.env.WEBTOKEN, {
       expiresIn: "12h",
     });
-
-    console.log("Generate Token\n", token);
 
     res.cookie(String(user.id), token, {
       path: "/",
